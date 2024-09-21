@@ -4,15 +4,15 @@ import { useEffect, useState } from "react"
 import FolderList from "./FolderList"
 import FileModal from "./FileModal"
 import FolderModal from './FolderModal'
+import DeleteFolderModal from "./DeleteFolderModal"
+import File from "./File"
 
 interface Props {
-    path : string ,
-    fileName : string | null
-    folderName : string | null
+    path : string
 }
 
 
-const OpenList = ({path , fileName , folderName} : Props) => {
+const OpenList = ({path} : Props) => {
 
     const [data , setData] = useState([])
 
@@ -36,17 +36,18 @@ const OpenList = ({path , fileName , folderName} : Props) => {
         <div className="p-4 w-[100%]">
             <button onClick={()=>{
                 setOpen(item => !item)
-            }} className="flex items-center p-2 rounded-sm w-[100%] bg-blue-500">{path}</button>
+            }} className="flex items-center p-2 rounded-sm bg-blue-500">{path}</button>
             <div className={` ${open ? "block" : "hidden"}`}>
                 {data.map((item : any , index) => (
                     <div className="gap-2" key={index}>
-                        {!item.includes(".") ? <FolderList path={`${path}/${item}`} folderName={item}/> : <div className="flex m-3 items-center p-2 gap-2 rounded-sm bg-red-500">{item}</div>}
+                        {!item.includes(".") ? <FolderList path={`${path}/${item}`}/> : <File path={`${path}/${item}`}/>}
                     </div>
                 ))}
             </div>
             <div className={`${open ? "flex" : "hidden"} items-cente gap-2 justify-center`}>
                 <FileModal path={path}/>
-                <FolderModal path={path}/> 
+                <FolderModal path={path}/>
+                <DeleteFolderModal path={path}/>
             </div>
         </div>
     </>);

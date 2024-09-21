@@ -7,3 +7,9 @@ export async function POST(req : Request){
     fs.mkdirSync(`./app/${path}/${folderName}`)
     return NextResponse.json({message : "Folder Created Successfully"})
 }
+
+export async function DELETE(req : Request){
+    const {path} = await req.json()
+    fs.rmdirSync(`./app/${path}`)
+    return NextResponse.json({message : "Folder Removed Successfully"})
+}
