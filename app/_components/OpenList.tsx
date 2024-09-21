@@ -9,10 +9,11 @@ import File from "./File"
 
 interface Props {
     path : string
+    isClearable : boolean
 }
 
 
-const OpenList = ({path} : Props) => {
+const OpenList = ({path , isClearable = true} : Props) => {
 
     const [data , setData] = useState([])
 
@@ -47,7 +48,7 @@ const OpenList = ({path} : Props) => {
             <div className={`${open ? "flex" : "hidden"} items-cente gap-2 justify-center`}>
                 <FileModal path={path}/>
                 <FolderModal path={path}/>
-                <DeleteFolderModal path={path}/>
+                {isClearable && <DeleteFolderModal path={path}/>}
             </div>
         </div>
     </>);

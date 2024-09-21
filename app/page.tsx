@@ -2,7 +2,7 @@ import OpenList from "./_components/OpenList";
 
 const Home = () => {
     return (<>
-      <OpenList path="/root" fileName={null} folderName={null}/>
+      <OpenList isClearable={false} path="/root"/>
     </>);
 }
  

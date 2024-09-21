@@ -10,6 +10,6 @@ export async function POST(req : Request){
 
 export async function DELETE(req : Request){
     const {path} = await req.json()
-    fs.rmdirSync(`./app/${path}`)
+    fs.rmdirSync(`./app/${path}` , { recursive: true })
     return NextResponse.json({message : "Folder Removed Successfully"})
 }
