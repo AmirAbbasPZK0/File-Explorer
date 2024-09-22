@@ -1,4 +1,4 @@
-import { FaHtml5, FaCss3, FaJs, FaPython, FaPhp, FaFileAlt, FaReact } from "react-icons/fa";
+import { FaHtml5, FaCss3, FaJs, FaPython, FaPhp, FaFileAlt, FaReact, FaFile } from "react-icons/fa";
 
 
 const ChosenIcon = ({icon} : {icon : string}) => {
@@ -18,7 +18,9 @@ const ChosenIcon = ({icon} : {icon : string}) => {
         case "jsx":
             return <FaReact className="text-[25px]"/>
         case "tsx":
-            return <FaReact className="text-[25px]"/>    
+            return <FaReact className="text-[25px]"/>
+        default:
+            return <FaFile className="text-[25px]"/>
     }
 }
  

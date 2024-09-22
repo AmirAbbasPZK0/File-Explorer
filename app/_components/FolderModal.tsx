@@ -18,7 +18,7 @@ const FolderName = ({path} : Props) => {
                 setOpen(false)
             }} className="flex top-0 left-[50%] bg-red-600 m-2 p-2 rounded-md text-white">Close</button>
             <div className="flex items-center gap-2 flex-col justify-center w-[100%] text-black h-[50%]">
-                <h1 className="p-2 text-[20px]">folderName</h1>
+                <h1 className="p-2 text-[20px]">Folder Name</h1>
                 <input onChange={e => setFolderName(e.target.value)} type="text" className="p-2 rounded-sm " />
                 <button onClick={()=>{
                     fetch("/api/folder" , {method : "POST" , body : JSON.stringify({folderName , path})})
